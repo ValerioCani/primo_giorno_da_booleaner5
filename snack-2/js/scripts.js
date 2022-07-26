@@ -7,8 +7,8 @@
 let userNumber;
 
 do {
-    userNumber = prompt('Inserisci un numero');
-} while (userNumber > 1);
+    userNumber = parseInt(prompt('Inserisci un numero'));
+} while (userNumber < 1);
 
 const mainList = document.getElementById('main-list');
 
@@ -21,3 +21,6 @@ for (let i = 1; i <= userNumber; i++) {
 
     mainList.append(listItem);    
 }
+
+//riga 10 il prompt restituisce una stringa senza il parseint
+//riga 11 il do while rimaneva bloccato fino a che non si inseriva un numero uguale o minore di 1
