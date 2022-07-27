@@ -37,15 +37,15 @@ const avatars = [
 const users = [];
 const usersContainer = document.getElementById('users');
 
-for (let i = 0; i < firstNames; i++) {
-    let newUser = createUserObject();
+for (let i = 0; i < firstNames.length; i++) {
+    let newUser = createUserObject(firstNames[i], lastNames[i], emails[i], phoneNumbers[i], avatars[i]);
 
     users.push(newUser);
+    console.log(newUser);
 }
 
-console.log(newUser);
 
-users.forEach((i, element) => {
+users.forEach((element,i) => {
     const newUserCard = document.createElement('div');
     newUserCard.innerHTML = `<img src="${element.avatar}">`;
     newUserCard.innerHTML += `<h2>${element.fullName}</h2>`;
@@ -55,10 +55,11 @@ users.forEach((i, element) => {
     usersContainer.append(newUserCard);
 });
 
-function createUserObject(firstName, lastName, email, phoneNumber) {
+function createUserObject(firstName, lastName, email, phoneNumber, avatar) {
     let newUser = {};
     newUser.fullName = firstName + ' ' + lastName;
     newUser.email = email;
     newUser.phoneNumber = phoneNumber;
     newUser.avatar = avatar;
+    return newUser
 }
